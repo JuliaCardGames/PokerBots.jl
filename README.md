@@ -21,6 +21,6 @@
 [codecov-url]: https://codecov.io/gh/charleskawczynski/PokerBots.jl
 
 [bors-img]: https://bors.tech/images/badge_small.svg
-[bors-url]: https://app.bors.tech/repositories/32815
+[bors-url]: https://app.bors.tech/repositories/35015
 
 An experimental package for developing poker bots
