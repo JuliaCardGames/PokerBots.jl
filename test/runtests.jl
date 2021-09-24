@@ -1,6 +1,6 @@
 # https://github.com/jheinen/GR.jl/issues/278#issuecomment-587090846
 ENV["GKSwstype"] = "nul"
-
+# push!(LOAD_PATH, joinpath("C:","Users","kawcz",".julia","packages","Plots","HcxwM"))
 using Test
 import Plots
 using PokerBots
@@ -23,12 +23,13 @@ function plot_stats(stats, n_games)
 end
 
 @testset "Battle" begin
-    n_tournaments = 2000
+    n_tournaments = 500
     bots = (
         PB.Bot5050(),
         PB.Bot5050(),
         PB.Bot6040(),
         PB.Bot6040(),
+        PB.DiscretizedBot(10),
     )
     stats, n_games = PB.battle!(n_tournaments, bots...)
     plot_stats(stats, n_games)

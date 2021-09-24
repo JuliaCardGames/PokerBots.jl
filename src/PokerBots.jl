@@ -5,6 +5,7 @@ import TexasHoldem
 const TH = TexasHoldem
 
 include("bots.jl")
+include("discretized_bots.jl")
 
 
 function battle!(n_tournaments, bots...)
@@ -55,7 +56,9 @@ function battle!(n_tournaments, bots...)
             end
 
             n_players_remaining = count(map(x->!(TH.bank_roll(x) ≈ 0), players))
+            # @show n_players_remaining
             if n_players_remaining ≤ 1
+                # @show winners
                 if !(length(winners.players) == 1) # 1 victor per tournament
                     # @show winners.players
                     # @show n_players_remaining
@@ -79,7 +82,7 @@ function battle!(n_tournaments, bots...)
         end
         # @info "******************************** Finished tournament!"
         if n_tournaments > 1000
-            if mod(i, 100) == 0
+            if mod(i, 25) == 0
                 @info "progress = $(i/n_tournaments*100)%"
             end
         else
